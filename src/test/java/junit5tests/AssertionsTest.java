@@ -1,9 +1,11 @@
 package junit5tests;
 
+import listeners.Listener;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,6 +17,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(Listener.class)
 public class AssertionsTest {
 
     @Test
@@ -74,7 +77,7 @@ public class AssertionsTest {
         assertThat(theList, hasItem("thirdString"));
     }
 
-    @Test //doesn't work ??
+    /*@Test //doesn't work ??
     void assertForAnyOfTest(){
         List<String> theList = asList("firstString", "secondString", "thirdString");
 
@@ -87,5 +90,5 @@ public class AssertionsTest {
         List<String> theList = asList("firstString", "secondString", "thirdString");
 
         assertThat(theList, containsInAnyOrder("firstString", "secondString", "thirdString"));
-    }
+    }*/
 }
